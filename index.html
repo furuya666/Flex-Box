@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo Flexbox</title>
+    <style>
+        *,
+        *::after,
+        *::before{
+            box-sizing: border-box;
+        }
+        .container{
+            background-color: #333;
+            height: 30vh;
+            width: 100%;
+            /* 1 Flex  de manera automatica todas las cajas te lo acomoda en una fila
+            BLOQUE osea que cada componente va estar en un bloque*/
+            /* 1 inline-Flex  componentes en una sola Linea */
+             display: flex;
+            /* 1  row >> 1, 2 ,3
+               2  row-reverse >> 3, 2, 1
+               3  column
+               4  column reverse
+            */
+            flex-direction: row;
+            /* 
+               *******envuelve ono a sus hijos
+               1 nowrap >>trata de mantener a todos los componentes  en un asola fila no respeta dimenciones
+               2 wrap  >> respeta dimenciones y acomoda dando un salto de linea
+            
+            */
+
+            flex-wrap: nowrap;
+            /* 1 flex-flow >>>es un atajo de flex-direction,flexwrap
+              
+             */
+             flex-flow: row nowrap;
+
+             /*ALINEAR LOS ELEMeNTOS DENTRO DICHA CAJA
+             *****ALINEA RESPECTO DE X  E  Y
+             ALINEA LOS HIJOS EN EL EJE PRINCIPAL
+               1 flex-start  >>principio
+               2 flex-end    >>final
+               3 flex-center >>centro
+               4 flex-space-between >> no tiene espacio alos costados
+               5 flex-space-around  >> tiene espacios en los costados mas pequeños en los medios mas grandes
+               6 flex-space-evenly  >>  espacios iguales entre todos
+               7 ojo se puede usar en row y column
+             */
+             justify-content: flex-start;
+             /*
+                ****alinea los hijos en el eje transversal(opuesto)
+                travaja en X E Y
+                1 flex-stretch    >> tamaño del contenedor padre
+                2 flex-start      >> arriba
+                3 flex-end        >> abajo
+                4 flex-center     >> centro
+                5 flex-baseline   >> se alinea al texto
+             */
+             align-items:stretch;
+             
+             /*
+             *******funciona cuando est en wrap o reverse
+                ALINEA LOS HIJOS EN EL EJE TRANVERSAL(opuesto)
+                1 flex-start
+                2 flex-end
+                3 center
+                4 space-between   >>>no respeta orrillas
+                5 space-around    >>>> respeta orillas 
+                6 space-evenly     >>>>> mismo tamaño en orillas y internos
+             */
+             align-content: flex-start;
+             
+            
+        }
+        .item{
+            border: medium solid #999;
+           /* width: 20%;
+            height: 20%;
+            */
+            background-color: #666;
+            /* divide todo el espacio que tiene y se los reparte a cada hijo por igual
+               valores >>>>> 0 , 1 , 2 ......
+            */
+            flex-grow: 0;
+            /*lo encoge cuando vas achicando la resolucion se puede activar ono
+               >>>>>lo contrario de grow
+             0 >>inactivo
+              1 >>activo
+            */
+            flex-shrink: 0;
+            /*
+              por defecto las cajas toman el alto o ancho de acuerdo al texto
+              con esta propiedad puedes designar un tamaño al azar
+            */
+            flex-basis: auto;
+            flex-basis: 100px;
+            /*
+               es una propiedad de 
+               1 flex-grow
+               2 flex-shrink
+               3 flex-basis
+               en ese orden
+            */
+            flex: 1 1 auto;
+        }
+        /*Nos sirve para tomar en cuenta un hijo*/
+        /* .item:nth-child(2){
+            flex-grow: 2;
+        } */
+
+
+    </style>
+</head>
+<body>
+    <section class="container">
+        <article class="item"> Flex Item 1</article>
+        <article class="item"> Flex Item 2</article>
+        <article class="item"> Flex Item 3</article>
+    </section>
+    <br>
+    <br>
+    <section class="container">
+        <article class="item"> Flex Item 1</article>
+        <article class="item"> Flex Item 2</article>
+        <article class="item"> Flex Item 3</article>
+        <article class="item"> Flex Item 4</article>
+        <article class="item"> Flex Item 5</article>
+        <article class="item"> Flex Item 6</article>
+        <article class="item"> Flex Item 7</article>
+        <article class="item"> Flex Item 8</article>
+        <article class="item"> Flex Item 9</article>
+    </section>
+    
+</body>
+</html>
